@@ -26,9 +26,10 @@ export default function Services() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="font-sans text-lg/loose text-[#555] mb-12 font-light"
                     >
-                        We offer a curated selection of premium hair and beauty treatments designed to enhance your natural radiance.
-                        From expert precision cutting and bespoke colouring to rejuvenating beauty therapies and grooming,
-                        every service is tailored to your unique style.
+                        At Cielo Hair & Beauty, we offer a curated selection of premium hair and beauty
+                        treatments designed to enhance your natural radiance. From expert precision cutting
+                        and bespoke colouring to rejuvenating beauty therapies, every service is tailored
+                        to your unique style.
                     </motion.p>
 
                     <motion.div
@@ -38,22 +39,21 @@ export default function Services() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="flex flex-col gap-4 w-full"
                     >
-                        <div className="flex items-center gap-4 py-4 border-b border-black/5">
-                            <span className="w-2 h-2 rounded-full bg-primary/60"></span>
-                            <span className="font-serif text-xl text-foreground">Hair Styling & Cutting</span>
-                        </div>
-                        <div className="flex items-center gap-4 py-4 border-b border-black/5">
-                            <span className="w-2 h-2 rounded-full bg-primary/60"></span>
-                            <span className="font-serif text-xl text-foreground">Bespoke Colouring</span>
-                        </div>
-                        <div className="flex items-center gap-4 py-4 border-b border-black/5">
-                            <span className="w-2 h-2 rounded-full bg-primary/60"></span>
-                            <span className="font-serif text-xl text-foreground">Luxury Treatments</span>
-                        </div>
-                        <div className="flex items-center gap-4 py-4 border-b border-black/5">
-                            <span className="w-2 h-2 rounded-full bg-primary/60"></span>
-                            <span className="font-serif text-xl text-foreground">Bridal & Occasion</span>
-                        </div>
+                        {[
+                            { label: 'Hair Styling, Cutting & Blow Wave', price: 'From $30' },
+                            { label: 'Colour, Foils & Keratin Treatments', price: 'From $49' },
+                            { label: 'Brow Bar, Lash & Eye Care', price: 'From $15' },
+                            { label: 'Facials, Waxing & Wellness', price: 'From $8' },
+                            { label: 'Manicure & Pedicure', price: 'From $45' },
+                        ].map((item, i) => (
+                            <div key={i} className="flex items-center justify-between py-4 border-b border-black/5">
+                                <div className="flex items-center gap-4">
+                                    <span className="w-2 h-2 rounded-full bg-primary/60"></span>
+                                    <span className="font-serif text-xl text-foreground">{item.label}</span>
+                                </div>
+                                <span className="font-sans text-sm font-semibold text-primary ml-4 whitespace-nowrap">{item.price}</span>
+                            </div>
+                        ))}
                     </motion.div>
                 </div>
 
@@ -67,7 +67,7 @@ export default function Services() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="absolute right-0 top-0 w-[65%] h-[85%] z-10 shadow-2xl"
                         style={{
-                            backgroundImage: "url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=2574&auto=format&fit=crop')",
+                            backgroundImage: "url('/services/hair_blowwave.png')",
                             backgroundSize: 'cover',
                             backgroundPosition: 'center'
                         }}
@@ -81,7 +81,7 @@ export default function Services() {
                         transition={{ duration: 0.8, delay: 0.4 }}
                         className="absolute left-0 bottom-10 w-[55%] h-[60%] z-20 shadow-2xl grayscale-[20%]"
                         style={{
-                            backgroundImage: "url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2670&auto=format&fit=crop')",
+                            backgroundImage: "url('/services/hair_colour.png')",
                             backgroundSize: 'cover',
                             backgroundPosition: 'center'
                         }}
@@ -95,7 +95,7 @@ export default function Services() {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="absolute left-[30%] top-[40%] w-[40%] h-[30%] z-30 shadow-2xl border-4 border-white"
                         style={{
-                            backgroundImage: "url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2669&auto=format&fit=crop')",
+                            backgroundImage: "url('/services/beauty_brow.png')",
                             backgroundSize: 'cover',
                             backgroundPosition: 'center'
                         }}

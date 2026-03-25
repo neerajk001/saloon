@@ -5,45 +5,66 @@ import { motion } from 'framer-motion';
 const treatments = [
     {
         id: 1,
-        title: 'Signature Cut & Style',
-        description: 'Precision cut tailored to your face shape.',
-        price: 'From $110',
-        image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=2574&auto=format&fit=crop'
+        title: 'Shampoo & Blow Wave',
+        description: 'A relaxing shampoo followed by a professional blow wave finish for smooth, bouncy hair.',
+        price: 'From $39',
+        image: '/services/hair_blowwave.png'
     },
     {
         id: 2,
-        title: 'Balayage & Gloss',
-        description: 'Hand-painted highlights for natural dimension.',
-        price: 'From $240',
-        image: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=2669&auto=format&fit=crop'
+        title: 'Full Head Foils',
+        description: 'Complete full-head foil colouring for vibrant, dimensional looks and beautiful highlights.',
+        price: 'From $199',
+        image: '/services/hair_colour.png'
     },
     {
         id: 3,
-        title: 'Deep Conditioning',
-        description: 'Restorative treatment for healthy shine.',
-        price: 'From $45',
-        image: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2669&auto=format&fit=crop'
+        title: 'Hair Spa Treatment',
+        description: 'A deeply nourishing hair spa experience with scalp massage and premium conditioning.',
+        price: 'From $69',
+        image: '/services/hair_spa.png'
     },
     {
         id: 4,
-        title: 'Beard Sculpt & Trim',
-        description: 'Detailing and shaping for the modern gentleman.',
+        title: "Men's Cut",
+        description: 'A sharp, clean cut tailored specifically for men, styled to perfection.',
         price: 'From $35',
-        image: 'https://images.unsplash.com/photo-1503951914875-452162b7f30a?q=80&w=2670&auto=format&fit=crop'
+        image: '/services/hair_mens.png'
     },
     {
         id: 5,
-        title: 'Bridal Styling',
-        description: 'Elegant up-dos and styling for your special day.',
-        price: 'Consultation',
-        image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=2669&auto=format&fit=crop'
+        title: 'Keratin Smoothing',
+        description: 'Long-lasting frizz elimination and silky smoothness with our Nanoplasty treatment.',
+        price: 'From $299',
+        image: '/services/hair_keratin.png'
     },
     {
         id: 6,
-        title: 'Keratin Smoothing',
-        description: 'Long-lasting frizz reduction and smoothness.',
-        price: 'From $300',
-        image: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=2669&auto=format&fit=crop'
+        title: 'Brow Bar & Eye Care',
+        description: 'Shape, tint, lift, or laminate — give your brows the attention they deserve.',
+        price: 'From $15',
+        image: '/services/beauty_brow.png'
+    },
+    {
+        id: 7,
+        title: 'Luxury Facials',
+        description: 'From brightening to anti-ageing — our expert facials rejuvenate and restore your glow.',
+        price: 'From $59',
+        image: '/services/beauty_facial.png'
+    },
+    {
+        id: 8,
+        title: 'Waxing & Body',
+        description: 'Professional waxing for smooth, lasting results — from full arms to full legs and bikini.',
+        price: 'From $8',
+        image: '/services/beauty_waxing.png'
+    },
+    {
+        id: 9,
+        title: 'Manicure & Pedicure',
+        description: 'Complete nail care for hands and feet, leaving you polished and pampered.',
+        price: 'From $45',
+        image: '/services/manicure_pedicure.png'
     },
 ];
 
@@ -54,13 +75,13 @@ export default function Treatments() {
                 {/* Header */}
                 <div className="text-center mb-16">
                     <span className="font-sans text-xs uppercase tracking-[0.2em] text-primary mb-4 block">
-                        Our Treatments
+                        What We Offer
                     </span>
                     <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
-                        Carefully Crafted Treatments
+                        Our Treatments & Services
                     </h2>
                     <p className="font-sans text-lg text-[#555] font-light max-w-2xl mx-auto">
-                        Experience the finest in hair and beauty care, performed by expert stylists using premium products.
+                        At Cielo Hair & Beauty, every service is crafted with care using premium products and expert technique.
                     </p>
                 </div>
 
@@ -72,11 +93,11 @@ export default function Treatments() {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            transition={{ duration: 0.6, delay: index * 0.08 }}
                             className="bg-white group rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
                         >
                             {/* Image & Price */}
-                            <div className="relative h-[250px] overflow-hidden">
+                            <div className="relative h-[240px] overflow-hidden">
                                 <div
                                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                                     style={{ backgroundImage: `url('${item.image}')` }}
@@ -84,8 +105,8 @@ export default function Treatments() {
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.4, delay: 0.2 + (index * 0.1) }}
-                                    className="absolute top-4 right-4 bg-white/80 backdrop-blur-md border border-white/40 text-black px-4 py-1.5 rounded-full text-sm font-medium tracking-wide shadow-sm"
+                                    transition={{ duration: 0.4, delay: 0.2 + (index * 0.08) }}
+                                    className="absolute top-4 right-4 bg-white/85 backdrop-blur-md border border-white/40 text-black px-4 py-1.5 rounded-full text-sm font-semibold tracking-wide shadow-sm"
                                 >
                                     {item.price}
                                 </motion.div>

@@ -14,11 +14,17 @@ export default function Hero() {
                 </p>
 
                 <div className="flex flex-col md:flex-row gap-6 justify-center">
-                    <a href="#book-thames" className="px-10 py-4 border border-white bg-transparent text-white font-sans text-sm uppercase tracking-[0.1em] transition-all duration-300 shadow-sm hover:bg-white hover:text-black hover:-translate-y-1 hover:shadow-lg">
-                        Book Thames
+                    <a
+                        href="#services"
+                        className="px-10 py-4 border border-white bg-transparent text-white font-sans text-sm uppercase tracking-[0.1em] transition-all duration-300 shadow-sm hover:bg-white hover:text-black hover:-translate-y-1 hover:shadow-lg"
+                    >
+                        Explore Services
                     </a>
-                    <a href="#book-tauranga" className="px-10 py-4 border border-white bg-transparent text-white font-sans text-sm uppercase tracking-[0.1em] transition-all duration-300 shadow-sm hover:bg-white hover:text-black hover:-translate-y-1 hover:shadow-lg">
-                        Book Tauranga
+                    <a
+                        href="#book"
+                        className="px-10 py-4 bg-white text-black font-sans text-sm uppercase tracking-[0.1em] transition-all duration-300 shadow-sm hover:bg-primary hover:text-white hover:-translate-y-1 hover:shadow-lg"
+                    >
+                        Book an Appointment
                     </a>
                 </div>
             </div>
