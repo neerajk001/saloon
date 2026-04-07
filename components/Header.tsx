@@ -66,34 +66,124 @@ export default function Header() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="fixed inset-0 z-[60] bg-white w-screen h-[100dvh] flex flex-col items-center justify-center pt-24 pb-12 px-6 md:hidden"
+                            transition={{ duration: 0.3 }}
+                            className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-md w-screen h-[100dvh] flex items-center justify-center md:hidden"
                         >
-                            <nav className="flex flex-col items-center gap-8 w-full">
-                                <Link onClick={closeMenu} href="/" className="font-sans text-lg uppercase tracking-[0.1em] text-primary font-medium">
-                                    Home
-                                </Link>
-                                <Link onClick={closeMenu} href="#about" className="font-sans text-lg uppercase tracking-[0.1em] text-foreground/80">
-                                    About Us
-                                </Link>
-                                <Link onClick={closeMenu} href="#services" className="font-sans text-lg uppercase tracking-[0.1em] text-foreground/80">
-                                    Services
-                                </Link>
-                                <Link onClick={closeMenu} href="/pricing" className="font-sans text-lg uppercase tracking-[0.1em] text-foreground/80">
-                                    Prices & Menu
-                                </Link>
-                                <Link onClick={closeMenu} href="#gallery" className="font-sans text-lg uppercase tracking-[0.1em] text-foreground/80">
-                                    Gallery
-                                </Link>
-                                <Link onClick={closeMenu} href="#contact" className="font-sans text-lg uppercase tracking-[0.1em] text-foreground/80">
-                                    Contact
-                                </Link>
+                            {/* Menu Panel */}
+                            <motion.div
+                                initial={{ x: '100%' }}
+                                animate={{ x: 0 }}
+                                exit={{ x: '100%' }}
+                                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                                className="relative bg-gradient-to-b from-[#1a1a1a] to-[#0d0d0d] w-full h-full flex flex-col items-center justify-center px-8"
+                            >
+                                {/* Close Button */}
+                                <button
+                                    onClick={closeMenu}
+                                    className="absolute top-6 right-6 z-[70] p-3 text-white/80 hover:text-white transition-colors duration-300 hover:bg-white/10 rounded-full"
+                                    aria-label="Close menu"
+                                >
+                                    <X size={28} strokeWidth={2} />
+                                </button>
 
-                                <div className="mt-8 w-full max-w-xs">
-                                    <Link onClick={closeMenu} href="#book" className="block w-full py-4 bg-foreground text-white text-center font-sans uppercase tracking-widest hover:bg-primary">
+                                {/* Navigation Links */}
+                                <nav className="flex flex-col items-center gap-8 w-full max-w-sm">
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.1 }}
+                                    >
+                                        <Link 
+                                            onClick={closeMenu} 
+                                            href="/" 
+                                            className="block font-sans text-2xl uppercase tracking-[0.15em] text-primary font-semibold py-3 transition-all duration-300 hover:text-white hover:scale-105 active:scale-95"
+                                        >
+                                            Home
+                                        </Link>
+                                    </motion.div>
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.15 }}
+                                    >
+                                        <Link 
+                                            onClick={closeMenu} 
+                                            href="#about" 
+                                            className="block font-sans text-xl uppercase tracking-[0.12em] text-white/70 py-3 transition-all duration-300 hover:text-white hover:scale-105 active:scale-95"
+                                        >
+                                            About Us
+                                        </Link>
+                                    </motion.div>
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.2 }}
+                                    >
+                                        <Link 
+                                            onClick={closeMenu} 
+                                            href="#services" 
+                                            className="block font-sans text-xl uppercase tracking-[0.12em] text-white/70 py-3 transition-all duration-300 hover:text-white hover:scale-105 active:scale-95"
+                                        >
+                                            Services
+                                        </Link>
+                                    </motion.div>
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.25 }}
+                                    >
+                                        <Link 
+                                            onClick={closeMenu} 
+                                            href="/pricing" 
+                                            className="block font-sans text-xl uppercase tracking-[0.12em] text-white/70 py-3 transition-all duration-300 hover:text-white hover:scale-105 active:scale-95"
+                                        >
+                                            Prices & Menu
+                                        </Link>
+                                    </motion.div>
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.3 }}
+                                    >
+                                        <Link 
+                                            onClick={closeMenu} 
+                                            href="#gallery" 
+                                            className="block font-sans text-xl uppercase tracking-[0.12em] text-white/70 py-3 transition-all duration-300 hover:text-white hover:scale-105 active:scale-95"
+                                        >
+                                            Gallery
+                                        </Link>
+                                    </motion.div>
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.35 }}
+                                    >
+                                        <Link 
+                                            onClick={closeMenu} 
+                                            href="#contact" 
+                                            className="block font-sans text-xl uppercase tracking-[0.12em] text-white/70 py-3 transition-all duration-300 hover:text-white hover:scale-105 active:scale-95"
+                                        >
+                                            Contact
+                                        </Link>
+                                    </motion.div>
+                                </nav>
+
+                                {/* CTA Button */}
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.45 }}
+                                    className="mt-12 w-full max-w-xs"
+                                >
+                                    <Link 
+                                        onClick={closeMenu} 
+                                        href="#book" 
+                                        className="block w-full py-5 bg-primary text-white text-center font-sans text-lg uppercase tracking-[0.2em] font-semibold hover:bg-white hover:text-black transition-all duration-300 active:scale-95 shadow-2xl"
+                                    >
                                         Book Appointment
                                     </Link>
-                                </div>
-                            </nav>
+                                </motion.div>
+                            </motion.div>
                         </motion.div>
                     )}
                 </AnimatePresence>
