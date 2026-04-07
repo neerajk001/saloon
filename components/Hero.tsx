@@ -11,29 +11,39 @@ export default function Hero() {
                 </h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full px-2 sm:px-4 max-w-xs sm:max-w-md md:max-w-2xl">
-                    <div className="bg-white/10 text-white px-2 sm:px-4 md:px-6 py-6 sm:py-6 md:py-10 rounded-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group border border-white/30 flex flex-col items-center justify-center">
-                        <p className="font-sans text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.12em] text-white/60 mb-2 md:mb-3">Book appointment</p>
-                        <h3 className="font-serif text-xl sm:text-2xl md:text-4xl text-white mb-3 md:mb-6 font-light">Tauranga</h3>
-                        <a
-                            href="https://www.fresha.com/book-now/cielo-hair-beauty-wyhncpet/all-offer?share=true&pId=2612673"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-3 sm:px-5 md:px-8 py-2 md:py-3 bg-white text-black font-sans text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.1em] transition-all duration-300 hover:bg-primary text-nowrap font-semibold"
-                        >
-                            Book Now
-                        </a>
+                    <div className="relative overflow-hidden group rounded-sm">
+                        {/* Background blur and gradient layer */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm rounded-sm"></div>
+                        {/* Card content */}
+                        <div className="relative z-10 text-white px-2 sm:px-4 md:px-6 py-6 sm:py-6 md:py-10 rounded-sm border border-white/15 flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-white/30 hover:shadow-black/40">
+                            <p className="font-sans text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.12em] text-white/60 mb-2 md:mb-3">Book appointment</p>
+                            <h3 className="font-serif text-xl sm:text-2xl md:text-4xl text-white mb-3 md:mb-6 font-light">Tauranga</h3>
+                            <a
+                                href="https://www.fresha.com/book-now/cielo-hair-beauty-wyhncpet/all-offer?share=true&pId=2612673"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block px-3 sm:px-5 md:px-8 py-2 md:py-3 bg-white text-black font-sans text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.1em] transition-all duration-300 hover:bg-primary text-nowrap font-semibold shadow-md hover:shadow-lg"
+                            >
+                                Book Now
+                            </a>
+                        </div>
                     </div>
-                    <div className="bg-white/10 text-white px-2 sm:px-4 md:px-6 py-6 sm:py-6 md:py-10 rounded-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group border border-white/30 flex flex-col items-center justify-center">
-                        <p className="font-sans text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.12em] text-white/60 mb-2 md:mb-3">Book appointment</p>
-                        <h3 className="font-serif text-xl sm:text-2xl md:text-4xl text-white mb-3 md:mb-6 font-light">Thames</h3>
-                        <a
-                            href="https://www.fresha.com/book-now/cielo-hair-l0uwx88v/all-offer?share=true&pId=87091"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-3 sm:px-5 md:px-8 py-2 md:py-3 bg-white text-black font-sans text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.1em] transition-all duration-300 hover:bg-primary text-nowrap font-semibold"
-                        >
-                            Book Now
-                        </a>
+                    <div className="relative overflow-hidden group rounded-sm">
+                        {/* Background blur and gradient layer */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm rounded-sm"></div>
+                        {/* Card content */}
+                        <div className="relative z-10 text-white px-2 sm:px-4 md:px-6 py-6 sm:py-6 md:py-10 rounded-sm border border-white/15 flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-white/30 hover:shadow-black/40">
+                            <p className="font-sans text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.12em] text-white/60 mb-2 md:mb-3">Book appointment</p>
+                            <h3 className="font-serif text-xl sm:text-2xl md:text-4xl text-white mb-3 md:mb-6 font-light">Thames</h3>
+                            <a
+                                href="https://www.fresha.com/book-now/cielo-hair-l0uwx88v/all-offer?share=true&pId=87091"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block px-3 sm:px-5 md:px-8 py-2 md:py-3 bg-white text-black font-sans text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.1em] transition-all duration-300 hover:bg-primary text-nowrap font-semibold shadow-md hover:shadow-lg"
+                            >
+                                Book Now
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -12,11 +12,13 @@ export default function Header() {
     const closeMenu = () => setIsMenuOpen(false);
 
     return (
-        <header className="fixed top-0 left-0 w-full z-50 py-4 md:py-6 bg-transparent border-b border-transparent">
+        <header className="fixed top-2 left-2 right-2 md:top-4 md:left-4 md:right-4 w-auto z-50 py-1.5 md:py-2 bg-[#2C2C2C]/80 backdrop-blur-sm border border-white/10 rounded-full">
             <div className="relative flex justify-between items-center max-w-[1200px] mx-auto px-6 md:px-8">
                 {/* Logo */}
-                <div className="font-serif text-2xl md:text-3xl tracking-wide text-white z-50 drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
-                    <Link href="/" onClick={closeMenu}>Cielo</Link>
+                <div className="z-50 drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
+                    <Link href="/" onClick={closeMenu}>
+                        <img src="/logo.png" alt="Cielo Logo" className="h-14 md:h-16 w-auto" />
+                    </Link>
                 </div>
 
                 {/* Desktop Navigation */}
