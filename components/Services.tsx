@@ -1,6 +1,15 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
+
+const servicesList = [
+    { slug: 'hair-styling', label: 'Hair Styling, Cutting & Blow Wave', price: 'From $30' },
+    { slug: 'colouring', label: 'Colour, Foils & Keratin Treatments', price: 'From $49' },
+    { slug: 'beauty-treatments', label: 'Brow Bar, Lash & Eye Care', price: 'From $15' },
+    { slug: 'grooming', label: 'Facials, Waxing & Wellness', price: 'From $8' },
+    { slug: 'nails', label: 'Manicure & Pedicure', price: 'From $45' },
+];
 
 export default function Services() {
     return (
@@ -39,21 +48,29 @@ export default function Services() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="flex flex-col gap-4 w-full"
                     >
-                        {[
-                            { label: 'Hair Styling, Cutting & Blow Wave', price: 'From $30' },
-                            { label: 'Colour, Foils & Keratin Treatments', price: 'From $49' },
-                            { label: 'Brow Bar, Lash & Eye Care', price: 'From $15' },
-                            { label: 'Facials, Waxing & Wellness', price: 'From $8' },
-                            { label: 'Manicure & Pedicure', price: 'From $45' },
-                        ].map((item, i) => (
-                            <div key={i} className="flex items-center justify-between py-4 border-b border-black/5">
-                                <div className="flex items-center gap-4">
-                                    <span className="w-2 h-2 rounded-full bg-primary/60"></span>
-                                    <span className="font-serif text-xl text-foreground">{item.label}</span>
+                        {servicesList.map((item, i) => (
+                            <Link key={i} href={`/services/${item.slug}`}>
+                                <div className="flex items-center justify-between py-4 border-b border-black/5 hover:bg-black/2 transition-colors duration-300 px-2 -mx-2 rounded cursor-pointer group">
+                                    <div className="flex items-center gap-4">
+                                        <span className="w-2 h-2 rounded-full bg-primary/60 group-hover:bg-primary transition-colors duration-300"></span>
+                                        <span className="font-serif text-xl text-foreground group-hover:text-primary transition-colors duration-300">{item.label}</span>
+                                    </div>
+                                    <span className="font-sans text-sm font-semibold text-primary ml-4 whitespace-nowrap">{item.price}</span>
                                 </div>
-                                <span className="font-sans text-sm font-semibold text-primary ml-4 whitespace-nowrap">{item.price}</span>
-                            </div>
+                            </Link>
                         ))}
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="mt-8"
+                    >
+                        <Link href="/services" className="inline-block px-8 py-3 border border-primary text-primary font-sans font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-all duration-300 rounded">
+                            View All Services
+                        </Link>
                     </motion.div>
                 </div>
 

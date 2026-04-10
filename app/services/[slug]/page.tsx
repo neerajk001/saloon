@@ -5,28 +5,34 @@ import Footer from '@/components/Footer';
 
 const servicesData: Record<string, { title: string; description: string; highlights: string[]; image: string }> = {
     'hair-styling': {
-        title: 'Precision Hair Styling',
+        title: 'Hair Styling, Cutting & Blow Wave',
         description: 'Our expert stylists combine technical precision with artistic vision to create cuts that enhance your natural features and reflect your personal style. From classic shapes to modern textures, we deliver a look that is uniquely yours.',
         highlights: ['Consultation tailored to your face shape', 'Precision cutting techniques', 'Blow-dry and finishing included', 'Advice on home care and styling'],
         image: 'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=2576&auto=format&fit=crop'
     },
     'colouring': {
-        title: 'Bespoke Colouring',
+        title: 'Colour, Foils & Keratin Treatments',
         description: 'Transform your look with our custom colouring services. Using only premium products, our colourists create stunning, multi-dimensional shades that maintain the health and shine of your hair.',
         highlights: ['Ammonia-free options available', 'Custom colour mixing', 'Balayage and Ombre techniques', 'Post-colour gloss treatments'],
         image: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=2669&auto=format&fit=crop'
     },
     'beauty-treatments': {
-        title: 'Rejuvenating Beauty',
-        description: 'Immerse yourself in our range of restorative beauty treatments. Designed to relax and rejuvenate, our therapies use high-performance ingredients to leave you feeling refreshed and glowing.',
-        highlights: ['Deep cleansing facials', 'Relaxing facial massages', 'Premium skincare products', 'Holistic wellness approach'],
+        title: 'Brow Bar, Lash & Eye Care',
+        description: 'Immerse yourself in our range of professional brow, lash and eye care treatments. Designed to relax and rejuvenate, our therapies use high-performance techniques to leave you feeling refreshed and confident.',
+        highlights: ['Expert brow shaping and design', 'Professional lash services', 'Premium eye treatments', 'Holistic beauty approach'],
         image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2670&auto=format&fit=crop'
     },
     'grooming': {
-        title: 'Luxury Grooming',
-        description: 'Refined grooming services for the modern individual. We offer detailed cuts, beard shaping, and skincare treatments in a relaxed, masculine environment.',
-        highlights: ['Precision clipper & scissor cuts', 'Hot towel shaves', 'Beard trim & shape', 'Scalp treatments'],
+        title: 'Facials, Waxing & Wellness',
+        description: 'Rejuvenating facials and professional waxing services designed to leave your skin glowing and refreshed. Our holistic wellness approach combines premium skincare with relaxation.',
+        highlights: ['Deep cleansing facials', 'Professional waxing services', 'Premium skincare products', 'Relaxing wellness treatments'],
         image: 'https://images.unsplash.com/photo-1503951914875-452162b7f30a?q=80&w=2670&auto=format&fit=crop'
+    },
+    'nails': {
+        title: 'Manicure & Pedicure',
+        description: 'Luxury nail care services with expert technicians and premium products. From classic manicures to artistic designs, we deliver beautiful, long-lasting results.',
+        highlights: ['Precision nail care', 'Variety of nail designs', 'Premium nail products', 'Relaxing nail spa experience'],
+        image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=2670&auto=format&fit=crop'
     }
 };
 
@@ -69,8 +75,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             {/* Content Section */}
             <section className="py-24 px-8 max-w-[900px] mx-auto">
                 <div className="mb-12">
-                    <Link href="/" className="inline-flex items-center text-sm font-sans uppercase tracking-widest text-primary hover:text-foreground transition-colors mb-8">
-                        ← Back to Home
+                    <Link href="/services" className="inline-flex items-center text-sm font-sans uppercase tracking-widest text-primary hover:text-foreground transition-colors mb-8">
+                        ← Back to Services
                     </Link>
                     <p className="font-serif text-2xl md:text-3xl text-foreground leading-relaxed mb-12">
                         {service.description}

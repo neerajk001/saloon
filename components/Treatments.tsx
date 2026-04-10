@@ -1,6 +1,8 @@
 'use client';
 
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const treatments = [
     {
@@ -69,6 +71,14 @@ const treatments = [
 ];
 
 export default function Treatments() {
+    const cardsRef = useRef<HTMLDivElement | null>(null);
+
+    const scrollCards = (direction: 'left' | 'right') => {
+        if (!cardsRef.current) return;
+        const distance = direction === 'left' ? -380 : 380;
+        cardsRef.current.scrollBy({ left: distance, behavior: 'smooth' });
+    };
+
     return (
         <section className="py-24 md:py-32 bg-surface">
             <div className="max-w-[1200px] mx-auto px-8">
@@ -85,50 +95,68 @@ export default function Treatments() {
                     </p>
                 </div>
 
-                {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {treatments.map((item, index) => (
-                        <motion.div
-                            key={item.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.08 }}
-                            className="bg-white group rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+                {/* Horizontal Cards with Controls */}
+                <div className="relative">
+                    <div className="flex justify-end gap-3 mb-6">
+                        <button
+                            type="button"
+                            onClick={() => scrollCards('left')}
+                            className="w-11 h-11 rounded-full border border-black/15 bg-white text-foreground hover:bg-foreground hover:text-white transition-colors duration-300 flex items-center justify-center"
+                            aria-label="Scroll treatments left"
                         >
-                            {/* Image & Price */}
-                            <div className="relative h-[240px] overflow-hidden">
-                                <div
-                                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                                    style={{ backgroundImage: `url('${item.image}')` }}
-                                />
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.4, delay: 0.2 + (index * 0.08) }}
-                                    className="absolute top-4 right-4 bg-white/85 backdrop-blur-md border border-white/40 text-black px-4 py-1.5 rounded-full text-sm font-semibold tracking-wide shadow-sm"
-                                >
-                                    {item.price}
-                                </motion.div>
-                            </div>
+                            <ChevronLeft size={20} />
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => scrollCards('right')}
+                            className="w-11 h-11 rounded-full border border-black/15 bg-white text-foreground hover:bg-foreground hover:text-white transition-colors duration-300 flex items-center justify-center"
+                            aria-label="Scroll treatments right"
+                        >
+                            <ChevronRight size={20} />
+                        </button>
+                    </div>
 
-                            {/* Content */}
-                            <div className="p-8 flex flex-col items-center text-center">
-                                <h3 className="font-serif text-xl text-foreground mb-3">
-                                    {item.title}
-                                </h3>
-                                <p className="font-sans text-sm text-[#777] font-light mb-6">
-                                    {item.description}
-                                </p>
-                                <a
-                                    href="#book"
-                                    className="inline-block px-8 py-2.5 bg-transparent border border-foreground text-foreground text-xs uppercase tracking-[0.1em] transition-all hover:bg-foreground hover:text-white"
-                                >
-                                    Book Now
-                                </a>
-                            </div>
-                        </motion.div>
-                    ))}
+                    <div
+                        ref={cardsRef}
+                        className="overflow-x-auto scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                    >
+                        <div className="flex gap-8 w-max pr-8">
+                            {treatments.map((item, index) => (
+                            <motion.div
+                                key={item.id}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: index * 0.06 }}
+                                className="bg-white group rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 w-[320px] md:w-[360px] flex-shrink-0"
+                            >
+                                <div className="relative h-[240px] overflow-hidden">
+                                    <div
+                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                        style={{ backgroundImage: `url('${item.image}')` }}
+                                    />
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        transition={{ duration: 0.4, delay: 0.2 + (index * 0.06) }}
+                                        className="absolute top-4 right-4 bg-white/85 backdrop-blur-md border border-white/40 text-black px-4 py-1.5 rounded-full text-sm font-semibold tracking-wide shadow-sm"
+                                    >
+                                        {item.price}
+                                    </motion.div>
+                                </div>
+
+                                <div className="p-8 flex flex-col items-center text-center">
+                                    <h3 className="font-serif text-xl text-foreground mb-3">
+                                        {item.title}
+                                    </h3>
+                                    <p className="font-sans text-sm text-[#777] font-light mb-6">
+                                        {item.description}
+                                    </p>
+                                </div>
+                            </motion.div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

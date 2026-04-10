@@ -1,0 +1,9 @@
+pnpm-lock.yaml
+.eslintrc.mjs
+build_log.txt
+validation_output.txt
+.git
+.env.local
+node_modules
+.next
+out

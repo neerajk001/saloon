@@ -5,12 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn } from 'lucide-react';
 
 const galleryImages = [
-    { id: 1, src: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=2669', alt: 'Hair Colouring', span: 'col-span-1 row-span-2' },
-    { id: 2, src: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=2669', alt: 'Bridal Style', span: 'col-span-1 row-span-1' },
-    { id: 3, src: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=2574', alt: 'Salon Interior', span: 'col-span-1 row-span-1' },
-    { id: 4, src: 'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=2576', alt: 'Stylist at Work', span: 'col-span-1 row-span-2' }, // Tall
-    { id: 5, src: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2669', alt: 'Model Look', span: 'col-span-1 row-span-1' },
-    { id: 6, src: 'https://images.unsplash.com/photo-1596704017614-205d6cb82e2e?q=80&w=2670', alt: 'Details', span: 'col-span-1 row-span-1' },
+    { id: 1, src: '/salon1%20(1).JPG', alt: 'Salon Gallery 1', span: 'col-span-1 row-span-2' },
+    { id: 2, src: '/salon1%20(2).JPG', alt: 'Salon Gallery 2', span: 'col-span-1 row-span-1' },
+    { id: 3, src: '/salon1%20(3).JPG', alt: 'Salon Gallery 3', span: 'col-span-1 row-span-1' },
+    { id: 4, src: '/salon1%20(4).JPG', alt: 'Salon Gallery 4', span: 'col-span-1 row-span-2' },
+    { id: 5, src: '/salon1%20(5).JPG', alt: 'Salon Gallery 5', span: 'col-span-1 row-span-1' },
 ];
 
 export default function Gallery() {

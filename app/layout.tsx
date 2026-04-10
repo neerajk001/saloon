@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     "Experience the ultimate in luxury hair and beauty at Cielo. Book your appointment in Thames or Tauranga today.",
 };
 
+// Cache Strategy: Static export with aggressive caching
+// Images and videos will be cached by Vercel CDN for 1 year
+// This minimizes bandwidth usage and provides fast global delivery
+
 export default function RootLayout({
   children,
 }: Readonly<{
