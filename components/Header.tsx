@@ -1,22 +1,40 @@
 'use client';
 
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isBookPickerOpen, setIsBookPickerOpen] = useState(false);
+    const headerRef = useRef<HTMLDivElement | null>(null);
 
-    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-    const closeMenu = () => setIsMenuOpen(false);
+    const bookingLinks = {
+        tauranga: 'https://www.fresha.com/book-now/cielo-hair-beauty-wyhncpet/all-offer?share=true&pId=2612673',
+        thames: 'https://www.fresha.com/book-now/cielo-hair-l0uwx88v/all-offer?share=true&pId=87091',
+    } as const;
+
+    const openBooking = (location: keyof typeof bookingLinks) => {
+        window.open(bookingLinks[location], '_blank', 'noopener,noreferrer');
+        setIsBookPickerOpen(false);
+    };
+
+    useEffect(() => {
+        const handleOutsideClick = (event: MouseEvent) => {
+            if (!headerRef.current) return;
+            if (!headerRef.current.contains(event.target as Node)) {
+                setIsBookPickerOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleOutsideClick);
+        return () => document.removeEventListener('mousedown', handleOutsideClick);
+    }, []);
 
     return (
         <header className="fixed top-2 left-2 right-2 md:top-4 md:left-4 md:right-4 w-auto z-50 py-1.5 md:py-2 bg-[#2C2C2C]/80 backdrop-blur-sm border border-gray-300/40 rounded-xl">
-            <div className="relative flex justify-between items-center max-w-[1200px] mx-auto px-6 md:px-8">
+            <div ref={headerRef} className="relative flex justify-between items-center max-w-[1200px] mx-auto px-6 md:px-8">
                 {/* Logo */}
                 <div className="z-50 drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
-                    <Link href="/" onClick={closeMenu}>
+                    <Link href="/">
                         <img src="/logo.png" alt="Cielo Logo" className="h-14 md:h-16 w-auto" />
                     </Link>
                 </div>
@@ -39,123 +57,63 @@ export default function Header() {
 
                 {/* Desktop Book Button */}
                 <div className="z-10 hidden md:block">
-                    <Link href="#book" className="px-6 py-2 border border-white/80 text-white font-sans text-sm uppercase tracking-wider transition-all hover:bg-white hover:text-black">
+                    <button
+                        type="button"
+                        onClick={() => setIsBookPickerOpen((prev) => !prev)}
+                        className="px-6 py-2 bg-[#f28c28] text-white font-sans text-sm uppercase tracking-wider transition-all hover:bg-[#e47910] rounded-md"
+                    >
                         Book Now
-                    </Link>
+                    </button>
                 </div>
 
-                {/* Mobile Menu Button */}
-                <button
-                    className="md:hidden z-50 p-2 text-white"
-                    onClick={toggleMenu}
-                    aria-label="Toggle menu"
-                >
-                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                {/* Mobile Center Navigation */}
+                <nav className="md:hidden z-10 absolute left-1/2 -translate-x-1/2 flex items-center gap-4">
+                    <Link
+                        href="/services"
+                        className="px-3 py-2 border border-white/30 text-white font-sans text-[11px] uppercase tracking-[0.08em] rounded-md min-w-[88px] text-center"
+                    >
+                        Services
+                    </Link>
+                    <Link
+                        href="/gallery"
+                        className="px-3 py-2 border border-white/30 text-white font-sans text-[11px] uppercase tracking-[0.08em] rounded-md min-w-[88px] text-center"
+                    >
+                        Gallery
+                    </Link>
+                </nav>
 
-                {/* Mobile Menu Overlay */}
-                <AnimatePresence>
-                    {isMenuOpen && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-md w-screen h-[100dvh] flex items-center justify-center md:hidden"
-                        >
-                            {/* Menu Panel */}
-                            <motion.div
-                                initial={{ x: '100%' }}
-                                animate={{ x: 0 }}
-                                exit={{ x: '100%' }}
-                                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                                className="relative bg-gradient-to-b from-[#1a1a1a] to-[#0d0d0d] w-full h-full flex flex-col items-center justify-center px-8"
+                {/* Mobile Book Button */}
+                <div className="md:hidden z-10 ml-auto">
+                    <button
+                        type="button"
+                        onClick={() => setIsBookPickerOpen((prev) => !prev)}
+                        className="px-3 py-2 bg-[#f28c28] text-white font-sans text-[11px] uppercase tracking-[0.08em] rounded-md font-semibold hover:bg-[#e47910] transition-colors"
+                    >
+                        Book
+                    </button>
+                </div>
+
+                {isBookPickerOpen && (
+                    <div className="absolute right-0 top-full mt-2 w-44 bg-transparent p-0 z-[80]">
+                        <div className="flex flex-col gap-1.5">
+                            <button
+                                type="button"
+                                onClick={() => openBooking('tauranga')}
+                                className="w-full py-2 bg-[#f28c28]/95 text-white rounded-md font-sans text-[11px] uppercase tracking-wider font-semibold hover:bg-[#e47910] transition-colors"
                             >
-                                {/* Close Button */}
-                                <button
-                                    onClick={closeMenu}
-                                    className="absolute top-6 right-6 z-[70] p-3 text-white/80 hover:text-white transition-colors duration-300 hover:bg-white/10 rounded-full"
-                                    aria-label="Close menu"
-                                >
-                                    <X size={28} strokeWidth={2} />
-                                </button>
-
-                                {/* Navigation Links */}
-                                <nav className="flex flex-col items-center gap-8 w-full max-w-sm">
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.1 }}
-                                    >
-                                        <Link 
-                                            onClick={closeMenu} 
-                                            href="/" 
-                                            className="block font-sans text-2xl uppercase tracking-[0.15em] text-primary font-semibold py-3 transition-all duration-300 hover:text-white hover:scale-105 active:scale-95"
-                                        >
-                                            Home
-                                        </Link>
-                                    </motion.div>
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.15 }}
-                                    >
-                                        <Link 
-                                            onClick={closeMenu} 
-                                            href="#about" 
-                                            className="block font-sans text-xl uppercase tracking-[0.12em] text-white/70 py-3 transition-all duration-300 hover:text-white hover:scale-105 active:scale-95"
-                                        >
-                                            About Us
-                                        </Link>
-                                    </motion.div>
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.2 }}
-                                    >
-                                        <Link 
-                                            onClick={closeMenu} 
-                                            href="/services" 
-                                            className="block font-sans text-xl uppercase tracking-[0.12em] text-white/70 py-3 transition-all duration-300 hover:text-white hover:scale-105 active:scale-95"
-                                        >
-                                            Services
-                                        </Link>
-                                    </motion.div>
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.25 }}
-                                    >
-                                        <Link 
-                                            onClick={closeMenu} 
-                                            href="/gallery" 
-                                            className="block font-sans text-xl uppercase tracking-[0.12em] text-white/70 py-3 transition-all duration-300 hover:text-white hover:scale-105 active:scale-95"
-                                        >
-                                            Gallery
-                                        </Link>
-                                    </motion.div>
-                                </nav>
-
-                                {/* CTA Button */}
-                                <motion.div 
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.45 }}
-                                    className="mt-12 w-full max-w-xs"
-                                >
-                                    <Link 
-                                        onClick={closeMenu} 
-                                        href="#book" 
-                                        className="block w-full py-5 bg-primary text-white text-center font-sans text-lg uppercase tracking-[0.2em] font-semibold hover:bg-white hover:text-black transition-all duration-300 active:scale-95 shadow-2xl"
-                                    >
-                                        Book Appointment
-                                    </Link>
-                                </motion.div>
-                            </motion.div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </div>
+                                Book Tauranga
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => openBooking('thames')}
+                                className="w-full py-2 bg-[#f28c28]/95 text-white rounded-md font-sans text-[11px] uppercase tracking-wider font-semibold hover:bg-[#e47910] transition-colors"
+                            >
+                                Book Thames
+                            </button>
+                        </div>
+                    </div>
+                )}
+                </div>
         </header>
     );
 }

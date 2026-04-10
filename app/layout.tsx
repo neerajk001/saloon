@@ -18,6 +18,21 @@ export const metadata: Metadata = {
   title: "Cielo Hair & Beauty | Elevated Hair & Beauty Experience",
   description:
     "Experience the ultimate in luxury hair and beauty at Cielo. Book your appointment in Thames or Tauranga today.",
+  icons: {
+    icon: [
+      {
+        url: "/favicon-96x96.png?v=3",
+        sizes: "96x96",
+        type: "image/png",
+      },
+      {
+        url: "/favicon.svg?v=3",
+        type: "image/svg+xml",
+      },
+    ],
+    shortcut: ["/favicon-96x96.png?v=3"],
+    apple: ["/apple-touch-icon.png"],
+  },
 };
 
 // Cache Strategy: Static export with aggressive caching

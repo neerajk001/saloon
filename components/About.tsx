@@ -60,7 +60,7 @@ export default function About() {
                         <a href="#services" className="px-8 py-3 bg-secondary text-foreground text-sm uppercase tracking-[0.1em] border border-transparent transition-all duration-300 hover:bg-primary hover:text-white text-center">
                             Our Services
                         </a>
-                        <a href="#book" className="px-8 py-3 bg-transparent text-foreground text-sm uppercase tracking-[0.1em] border border-foreground transition-all duration-300 hover:bg-foreground hover:text-white text-center">
+                        <a href="#book" className="px-8 py-3 bg-[#f28c28] text-white text-sm uppercase tracking-[0.1em] border border-transparent transition-all duration-300 hover:bg-[#e47910] text-center">
                             Book Now
                         </a>
                     </motion.div>
