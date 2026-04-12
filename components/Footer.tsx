@@ -15,7 +15,7 @@ export default function Footer() {
                         Elevating your natural beauty through expert artistry and restorative care in a serene sanctuary.
                     </p>
                     <div className="flex gap-4">
-                        <a href="#" aria-label="Instagram" className="w-9 h-9 border border-white/10 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-primary hover:border-primary text-white/80 hover:text-white">
+                        <a href="https://www.instagram.com/cielo_hair_beauty" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-9 h-9 border border-white/10 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-primary hover:border-primary text-white/80 hover:text-white">
                             <Instagram size={18} />
                         </a>
                         <a href="#" aria-label="Facebook" className="w-9 h-9 border border-white/10 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-primary hover:border-primary text-white/80 hover:text-white">
