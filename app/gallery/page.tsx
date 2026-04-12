@@ -2,16 +2,23 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ZoomIn } from 'lucide-react';
+import { X, ZoomIn, ArrowLeft } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
 
 const galleryImages = [
     { id: 1, src: '/salon1%20(1).JPG', alt: 'Salon Gallery 1', span: 'col-span-1 row-span-2' },
     { id: 2, src: '/salon1%20(2).JPG', alt: 'Salon Gallery 2', span: 'col-span-1 row-span-1' },
     { id: 3, src: '/salon1%20(3).JPG', alt: 'Salon Gallery 3', span: 'col-span-1 row-span-1' },
-    { id: 4, src: '/salon1%20(4).JPG', alt: 'Salon Gallery 4', span: 'col-span-1 row-span-2' },
-    { id: 5, src: '/salon1%20(5).JPG', alt: 'Salon Gallery 5', span: 'col-span-1 row-span-1' },
+    { id: 4, src: '/hair1.JPG', alt: 'Hair 1', span: 'col-span-1 row-span-2' },
+    { id: 5, src: '/hair2.JPG', alt: 'Hair 2', span: 'col-span-1 row-span-1' },
+    { id: 6, src: '/hair3.jpeg', alt: 'Hair 3', span: 'col-span-1 row-span-1' },
+    { id: 7, src: '/hair4.JPG', alt: 'Hair 4', span: 'col-span-1 row-span-2' },
+    { id: 8, src: '/hair5.JPG', alt: 'Hair 5', span: 'col-span-1 row-span-1' },
+    { id: 9, src: '/hair6.JPG', alt: 'Hair 6', span: 'col-span-1 row-span-1' },
+    { id: 10, src: '/salon1%20(4).JPG', alt: 'Salon Gallery 4', span: 'col-span-1 row-span-2' },
+    { id: 11, src: '/salon1%20(5).JPG', alt: 'Salon Gallery 5', span: 'col-span-1 row-span-1' },
 ];
 
 const galleryVideos = [
@@ -30,6 +37,17 @@ export default function Gallery() {
             
             <div className="pt-32 pb-24">
                 <div className="max-w-[1200px] mx-auto px-8">
+                    {/* Back Button */}
+                    <div className="mb-8">
+                        <Link 
+                            href="/" 
+                            className="inline-flex items-center gap-2 group text-primary font-sans text-xs uppercase tracking-[0.2em] hover:text-foreground transition-colors"
+                        >
+                            <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+                            Back to Home
+                        </Link>
+                    </div>
+
                     {/* Header */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

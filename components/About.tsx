@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function About() {
     return (
@@ -17,7 +18,7 @@ export default function About() {
                     <div
                         className="w-full h-full bg-cover bg-center transition-transform duration-[1.5s]"
                         style={{
-                            backgroundImage: "url('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=2576&auto=format&fit=crop')", // Placeholder: Elegant Salon Interior
+                            backgroundImage: "url('/beuty2.JPG')",
                         }}
                     />
                 </motion.div>
@@ -57,12 +58,12 @@ export default function About() {
                         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                         className="flex flex-col sm:flex-row gap-6 mt-4 w-full sm:w-auto"
                     >
-                        <a href="#services" className="px-8 py-3 bg-secondary text-foreground text-sm uppercase tracking-[0.1em] border border-transparent transition-all duration-300 hover:bg-primary hover:text-white text-center">
+                        <a href="/services" className="px-8 py-3 bg-secondary text-foreground text-sm uppercase tracking-[0.1em] border border-transparent transition-all duration-300 hover:bg-primary hover:text-white text-center">
                             Our Services
                         </a>
-                        <a href="#book" className="px-8 py-3 bg-[#f28c28] text-white text-sm uppercase tracking-[0.1em] border border-transparent transition-all duration-300 hover:bg-[#e47910] text-center">
-                            Book Now
-                        </a>
+                        <Link href="/about" className="px-8 py-3 bg-[#f28c28] text-white text-sm uppercase tracking-[0.1em] border border-transparent transition-all duration-300 hover:bg-[#e47910] text-center">
+                            Read More
+                        </Link>
                     </motion.div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { ArrowLeft } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -75,8 +76,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             {/* Content Section */}
             <section className="py-24 px-8 max-w-[900px] mx-auto">
                 <div className="mb-12">
-                    <Link href="/services" className="inline-flex items-center text-sm font-sans uppercase tracking-widest text-primary hover:text-foreground transition-colors mb-8">
-                        ← Back to Services
+                    <Link 
+                        href="/services" 
+                        className="inline-flex items-center gap-2 group text-primary font-sans text-xs uppercase tracking-[0.2em] hover:text-foreground transition-all duration-300 mb-8"
+                    >
+                        <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+                        Back to Services
                     </Link>
                     <p className="font-serif text-2xl md:text-3xl text-foreground leading-relaxed mb-12">
                         {service.description}

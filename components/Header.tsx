@@ -35,7 +35,7 @@ export default function Header() {
                 {/* Logo */}
                 <div className="z-50 drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
                     <Link href="/">
-                        <img src="/logo.png" alt="Cielo Logo" className="h-14 md:h-16 w-auto" />
+                        <img src="/gpt.png" alt="Cielo Logo" className="h-14 md:h-16 w-auto" />
                     </Link>
                 </div>
 
@@ -44,7 +44,7 @@ export default function Header() {
                     <Link href="/" className="font-sans text-xs md:text-sm uppercase tracking-[0.1em] text-white font-semibold transition-opacity duration-300 whitespace-nowrap">
                         Home
                     </Link>
-                    <Link href="#about" className="font-sans text-xs md:text-sm uppercase tracking-[0.1em] text-white/80 transition-opacity duration-300 hover:opacity-100 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full whitespace-nowrap">
+                    <Link href="/about" className="font-sans text-xs md:text-sm uppercase tracking-[0.1em] text-white/80 transition-opacity duration-300 hover:opacity-100 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full whitespace-nowrap">
                         About Us
                     </Link>
                     <Link href="/services" className="font-sans text-xs md:text-sm uppercase tracking-[0.1em] text-white/80 transition-opacity duration-300 hover:opacity-100 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full whitespace-nowrap">

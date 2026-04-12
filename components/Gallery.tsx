@@ -2,14 +2,16 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ZoomIn } from 'lucide-react';
+import { X, ZoomIn, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const galleryImages = [
     { id: 1, src: '/salon1%20(1).JPG', alt: 'Salon Gallery 1', span: 'col-span-1 row-span-2' },
     { id: 2, src: '/salon1%20(2).JPG', alt: 'Salon Gallery 2', span: 'col-span-1 row-span-1' },
     { id: 3, src: '/salon1%20(3).JPG', alt: 'Salon Gallery 3', span: 'col-span-1 row-span-1' },
-    { id: 4, src: '/salon1%20(4).JPG', alt: 'Salon Gallery 4', span: 'col-span-1 row-span-2' },
-    { id: 5, src: '/salon1%20(5).JPG', alt: 'Salon Gallery 5', span: 'col-span-1 row-span-1' },
+    { id: 4, src: '/hair1.JPG', alt: 'Salon Gallery 4', span: 'col-span-1 row-span-2' },
+    { id: 5, src: '/hair2.JPG', alt: 'Salon Gallery 5', span: 'col-span-1 row-span-1' },
+    { id: 6, src: '/hair3.jpeg', alt: 'Salon Gallery 6', span: 'col-span-1 row-span-1' },
 ];
 
 export default function Gallery() {
@@ -49,6 +51,14 @@ export default function Gallery() {
                             </div>
                         </motion.div>
                     ))}
+                </div>
+
+                {/* View More Button */}
+                <div className="mt-16 text-center">
+                    <Link href="/gallery" className="group inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-sans font-semibold uppercase tracking-wider hover:bg-primary/90 transition-all duration-300 rounded-lg">
+                        View Full Gallery
+                        <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
                 </div>
             </div>
 

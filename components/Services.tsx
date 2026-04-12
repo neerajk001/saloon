@@ -76,43 +76,43 @@ export default function Services() {
 
                 {/* Right Column: Stacked Images */}
                 <div className="order-1 lg:order-2 relative h-[500px] md:h-[600px] w-full flex items-center justify-center">
-                    {/* Image 1 (Bottom Layer - Large Vertical) */}
+                    {/* Image 1 (Bottom Layer - Left/Back) */}
                     <motion.div
-                        initial={{ opacity: 0, x: 20, rotate: 2 }}
-                        whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+                        initial={{ opacity: 0, x: -30, rotate: -3 }}
+                        whileInView={{ opacity: 1, x: 0, rotate: -2 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="absolute right-0 top-0 w-[65%] h-[85%] z-10 shadow-2xl"
+                        className="absolute left-0 top-10 w-[55%] h-[75%] z-10 shadow-xl"
                         style={{
-                            backgroundImage: "url('/services/hair_blowwave.png')",
+                            backgroundImage: "url('/beuty1.JPG')",
                             backgroundSize: 'cover',
                             backgroundPosition: 'center'
                         }}
                     />
 
-                    {/* Image 2 (Middle Layer - Offset Left) */}
+                    {/* Image 2 (Middle Layer - Right/Back) */}
                     <motion.div
-                        initial={{ opacity: 0, y: 40, rotate: -3 }}
-                        whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+                        initial={{ opacity: 0, x: 30, rotate: 3 }}
+                        whileInView={{ opacity: 1, x: 0, rotate: 2 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="absolute left-0 bottom-10 w-[55%] h-[60%] z-20 shadow-2xl grayscale-[20%]"
+                        className="absolute right-0 bottom-10 w-[55%] h-[75%] z-20 shadow-xl"
                         style={{
-                            backgroundImage: "url('/services/hair_colour.png')",
+                            backgroundImage: "url('/beuty2.JPG')",
                             backgroundSize: 'cover',
                             backgroundPosition: 'center'
                         }}
                     />
 
-                    {/* Image 3 (Top Layer - Small Detail) */}
+                    {/* Image 3 (Top Layer - Center Detail) */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.6 }}
-                        className="absolute left-[30%] top-[40%] w-[40%] h-[30%] z-30 shadow-2xl border-4 border-white"
+                        className="absolute left-[15%] bottom-[5%] w-[45%] h-[35%] z-30 shadow-2xl border-[10px] border-white"
                         style={{
-                            backgroundImage: "url('/services/beauty_brow.png')",
+                            backgroundImage: "url('/beuty3.jpg')",
                             backgroundSize: 'cover',
                             backgroundPosition: 'center'
                         }}

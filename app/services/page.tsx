@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { ArrowLeft } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ServicesMenu from '@/components/ServicesMenu';
@@ -51,6 +52,17 @@ export default function ServicesPage() {
             
             <div className="pt-32 pb-24">
                 <div className="max-w-[1200px] mx-auto px-8">
+                    {/* Back Button */}
+                    <div className="mb-8">
+                        <Link 
+                            href="/" 
+                            className="inline-flex items-center gap-2 group text-primary font-sans text-xs uppercase tracking-[0.2em] hover:text-foreground transition-colors"
+                        >
+                            <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+                            Back to Home
+                        </Link>
+                    </div>
+
                     {/* Header */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
